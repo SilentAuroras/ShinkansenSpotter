@@ -10,3 +10,4 @@ venv/
 # IDE
 .DS_Store
 .vscode/
+.idea/
