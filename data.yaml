@@ -1,0 +1,7 @@
+train: ./training-data/images/training
+val: ./training-data/images/validation
+
+nc: 1
+names: [
+  'N700',
+]

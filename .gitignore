@@ -14,3 +14,12 @@ venv/
 
 # Models
 *.pt
+
+# Local folders for testing
+runs/
+training-data/labels/
+*.cache
+
+# Do not include resized images, just upload raw
+# Images in training-data/images/training are resized from raw
+training-data/images/training/
