@@ -1,7 +1,8 @@
 train: ./training-data/images/training
 val: ./training-data/images/validation
 
-nc: 1
-names: [
-  'N700',
-]
+nc: 3
+names:
+  - N700
+  - E5
+  - E6

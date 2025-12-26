@@ -17,7 +17,7 @@ venv/
 
 # Local folders for testing
 runs/
-training-data/labels/
+training-data/labels/training/
 *.cache
 
 # Do not include resized images, just upload raw
