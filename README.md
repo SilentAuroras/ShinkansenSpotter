@@ -8,7 +8,19 @@ Train pictures and model information have been obtained from Wikipedia at the fo
 The following Shinkansen models have been added to the dataset currently. 
 - N700
 
-Training will begin automatically if no existing model has been custom trained (shinkansen.pt). Any images in the raw/ folder will be resized using CV2 to resize to 640x640. Training for the model was performed on a Nvidia 5070 but toggle exists to enable CPU training.
+Several overkill items have been added to simplify dataset preparation:
+1. Training will begin automatically if no custom model has been trained (shinkansen.pt)
+2. Any images in the raw/ folder will be resized using CV2 to resize to 640x640 and moved to their respective training folders (/N700/)
+3. To add any new training data one just needs to add a folder for the respective train:
+   4. For example (training-data/images/raw/E6)
+   5. Those training folders and images will be auto labeled with YOLO to determine first if train
+   6. Validation labels will need to be hand coded
+6. Once those labels are generated, the folder they are in such as N700, etc. will be used to remap the YOLO labels
+   7. N700 = 0
+   8. E5 = 1
+   9. E6 = 2
+10. Training will begin on those defined labels 
+11. Training for the model was performed on a Nvidia 5070 but a toggle exists to enable CPU training.
 
 ### Prerequisites
 1. Install YOLO from ultralytics
@@ -36,3 +48,30 @@ python3 main.py -i <IMAGE.png>
 ```bash
 python3 main.py -i <IMAGE.png> 
 ```
+
+### Example Run
+1. Run the script, this will run against a [test image](test-n700.png) without any arguments.
+```bash
+python main.py
+```
+1. Once run, the YOLO model will do a simpler pass on the dataset to generate the YOLO labels.
+<p align="center">
+<img src="screenshots/poc_1.png" width="600" height="400" />
+</p>
+
+2. After labels are generated (class_id 6) will be remapped to the desired classes (0,1,2), the model will be retrained on these labels.
+
+4. Below is one resulting bounding box
+<p align="center">
+<img src="screenshots/poc_2.png" width="600" height="400" />
+</p>
+
+4. This is working on video currently but definitely warrants improvement
+[POC Video](screenshots/poc_video.mp4)
+
+### Todo
+1. Clean up bounding boxes
+2. Fix video flickering boxes when object is close
+3. Add more train models
+   4. E5
+   5. E6
