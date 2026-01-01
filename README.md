@@ -12,15 +12,15 @@ Several overkill items have been added to simplify dataset preparation:
 1. Training will begin automatically if no custom model has been trained (shinkansen.pt)
 2. Any images in the raw/ folder will be resized using CV2 to resize to 640x640 and moved to their respective training folders (/N700/)
 3. To add any new training data one just needs to add a folder for the respective train:
-   4. For example (training-data/images/raw/E6)
-   5. Those training folders and images will be auto labeled with YOLO to determine first if train
-   6. Validation labels will need to be hand coded
-6. Once those labels are generated, the folder they are in such as N700, etc. will be used to remap the YOLO labels
-   7. N700 = 0
-   8. E5 = 1
-   9. E6 = 2
-10. Training will begin on those defined labels 
-11. Training for the model was performed on a Nvidia 5070 but a toggle exists to enable CPU training.
+   1. For example (training-data/images/raw/E6)
+   2. Those training folders and images will be auto labeled with YOLO to determine first if train
+   3. Validation labels will need to be hand coded
+4. Once those labels are generated, the folder they are in such as N700, etc. will be used to remap the YOLO labels
+   1. N700 = 0
+   2. E5 = 1
+   3. E6 = 2
+5. Training will begin on those defined labels 
+6. Training for the model was performed on a Nvidia 5070 but a toggle exists to enable CPU training.
 
 ### Prerequisites
 1. Install YOLO from ultralytics
@@ -73,5 +73,5 @@ python main.py
 1. Clean up bounding boxes
 2. Fix video flickering boxes when object is close
 3. Add more train models
-   4. E5
-   5. E6
+   1. E5
+   2. E6
