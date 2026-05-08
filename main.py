@@ -107,7 +107,7 @@ def normalize_images():
             # Create normalized directory for cleaned images
             cleaned_dir = f"training-data/images/training/{sub}/"
             if not os.path.exists(cleaned_dir):
-                os.mkdir(cleaned_dir)
+                os.makedirs(cleaned_dir)
 
             # Normalize image sizes
             print(f"[*] Normalizing folder: {sub}...")
